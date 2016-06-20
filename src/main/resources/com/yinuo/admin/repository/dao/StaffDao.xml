@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yinuo.admin.repository.dao.StaffDao">
+
+    <cache/>
+
+    <resultMap id="staffMap" type="com.yinuo.admin.repository.po.Staff">
+        <id property="id" column="ID"/>
+        <result property="username" column="USERNAME"/>
+        <result property="passwordHash" column="PASSWORD_HASH"/>
+        <result property="organization" column="ORGANIZATION"/>
+        <result property="nickname" column="NICKNAME"/>
+        <result property="phone" column="PHONE"/>
+        <result property="email" column="EMAIL"/>
+        <result property="status" column="STATUS"/>
+        <result property="createTime" column="CREATE_TIME"/>
+    </resultMap>
+
+    <select id="findByUsername" parameterType="String" resultMap="staffMap" flushCache="true" useCache="false">
+        SELECT
+          ID,
+          USERNAME,
+          PASSWORD_HASH,
+          ORGANIZATION,
+          NICKNAME,
+          PHONE,
+          EMAIL,
+          STATUS,
+          CREATE_TIME
+        FROM ADMIN_STAFF
+        WHERE USERNAME = #{username}
+    </select>
+
+    <select id="findAuthoritiesByUid" parameterType="Long" resultType="string" flushCache="true" useCache="false">
+        SELECT AUTHORITY FROM ADMIN_ROLES WHERE UID = #{uid}
+    </select>
+
+    <select id="countStaff" parameterType="String" resultType="int">
+        SELECT COUNT(*)
+        FROM ADMIN_STAFF U
+        WHERE U.USERNAME = #{username}
+    </select>
+
+    <insert id="insertStaff" useGeneratedKeys="false" parameterType="com.yinuo.admin.repository.po.Staff" keyProperty="id">
+        INSERT INTO ADMIN_STAFF (ID, USERNAME, PASSWORD_HASH, ORGANIZATION, NICKNAME, PHONE, EMAIL) VALUES (#{id}, #{username}, #{passwordHash}, #{organization}, #{nickname}, #{phone}, #{email})
+    </insert>
+
+    <insert id="insertAuthority" useGeneratedKeys="false" parameterType="map">
+        INSERT INTO ADMIN_ROLES (UID, AUTHORITY) VALUES (#{uid}, #{authority})
+    </insert>
+</mapper>

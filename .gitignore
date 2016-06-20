@@ -10,3 +10,25 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+# others
+.externalToolBuilders
+logs
+project/project
+project/target
+**/target
+tmp
+.history
+**/.idea
+**/*.iml
+/out
+**/.idea_modules
+/.classpath
+/.project
+/RUNNING_PID
+/.settings
+/.metadata
+*.log
+*.log.*
+*.iml
+**/bower_components

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<!--<![endif]-->
+
+<body>
+<div th:fragment="sidebar (type)" class="page-sidebar navbar-collapse collapse">
+    <!-- BEGIN SIDEBAR MENU -->
+    <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
+    <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
+    <!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
+    <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+    <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
+    <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+    <ul class="page-sidebar-menu  page-header-fixed " data-keep-expanded="false" data-auto-scroll="true"
+        data-slide-speed="200" style="padding-top: 20px">
+        <!-- DOC: To remove the sidebar toggler from the sidebar you just need to completely remove the below "sidebar-toggler-wrapper" LI element -->
+        <li class="sidebar-toggler-wrapper hide">
+            <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+            <div class="sidebar-toggler">
+                <span></span>
+            </div>
+            <!-- END SIDEBAR TOGGLER BUTTON -->
+        </li>
+
+        <div th:if="${type} eq 'dashboard'">
+            <li class="nav-item start active open">
+                <a href="javascript:;" class="nav-link nav-toggle">
+                    <i class="icon-home"></i>
+                    <span class="title">仪表盘</span>
+                    <span class="selected"></span>
+                    <span class="arrow open"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="nav-item start active open">
+                        <a href="/" class="nav-link ">
+                            <i class="icon-bar-chart"></i>
+                            <span class="title">仪表盘</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </div>
+        <div th:unless="${type} eq 'dashboard'">
+            <li class="nav-item start ">
+                <a href="javascript:;" class="nav-link nav-toggle">
+                    <i class="icon-home"></i>
+                    <span class="title">仪表盘</span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="nav-item start">
+                        <a href="/" class="nav-link ">
+                            <i class="icon-bar-chart"></i>
+                            <span class="title">仪表盘</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </div>
+
+
+        <li class="heading">
+            <h3 class="uppercase">信息管理</h3>
+        </li>
+
+        <div th:if="${type} eq 'organization'">
+            <li class="nav-item active open">
+                <a href="javascript:;" class="nav-link nav-toggle">
+                    <i class="icon-diamond"></i>
+                    <span class="title">机构管理</span>
+                    <span class="selected"></span>
+                    <span class="arrow open"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="nav-item start active open">
+                        <a href="/organization" class="nav-link ">
+                            <span class="title">机构管理</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </div>
+        <div th:unless="${type} eq 'organization'">
+            <li class="nav-item  ">
+                <a href="javascript:;" class="nav-link nav-toggle">
+                    <i class="icon-diamond"></i>
+                    <span class="title">机构管理</span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="nav-item  ">
+                        <a href="/organization" class="nav-link ">
+                            <span class="title">机构管理</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </div>
+
+        <div th:if="${type} eq 'user'">
+            <li class="nav-item start active open">
+                <a href="javascript:;" class="nav-link nav-toggle">
+                    <i class="icon-puzzle"></i>
+                    <span class="title">用户管理</span>
+                    <span class="selected"></span>
+                    <span class="arrow open"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="nav-item start active open">
+                        <a href="/user" class="nav-link ">
+                            <span class="title">用户管理</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </div>
+        <div th:unless="${type} eq 'user'">
+            <li class="nav-item  ">
+                <a href="javascript:;" class="nav-link nav-toggle">
+                    <i class="icon-puzzle"></i>
+                    <span class="title">用户管理</span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="nav-item  ">
+                        <a href="/user" class="nav-link ">
+                            <span class="title">用户管理</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </div>
+
+        <div th:if="${type} eq 'device'">
+            <li class="nav-item start active open">
+                <a href="javascript:;" class="nav-link nav-toggle">
+                    <i class="icon-settings"></i>
+                    <span class="title">设备管理</span>
+                    <span class="selected"></span>
+                    <span class="arrow open"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="nav-item start active open">
+                        <a href="/device" class="nav-link ">
+                            <span class="title">设备列表</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </div>
+        <div th:unless="${type} eq 'device'">
+            <li class="nav-item  ">
+                <a href="javascript:;" class="nav-link nav-toggle">
+                    <i class="icon-settings"></i>
+                    <span class="title">设备管理</span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="nav-item  ">
+                        <a href="/device" class="nav-link ">
+                            <span class="title">设备列表</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </div>
+
+        <div th:if="${type} eq 'instruction'">
+            <li class="nav-item start active open">
+                <a href="javascript:;" class="nav-link nav-toggle">
+                    <i class="icon-bulb"></i>
+                    <span class="title">指令管理</span>
+                    <span class="selected"></span>
+                    <span class="arrow open"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="nav-item start active open">
+                        <a href="/instruction" class="nav-link ">
+                            <span class="title">指令记录列表</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item  ">
+                        <a href="/#" class="nav-link ">
+                            <span class="title">指令集列表</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </div>
+        <div th:unless="${type} eq 'instruction'">
+            <li class="nav-item  ">
+                <a href="javascript:;" class="nav-link nav-toggle">
+                    <i class="icon-bulb"></i>
+                    <span class="title">指令管理</span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="nav-item  ">
+                        <a href="/instruction" class="nav-link ">
+                            <span class="title">指令记录列表</span>
+                        </a>
+                    </li>
+                    <li class="nav-item  ">
+                        <a href="/#" class="nav-link ">
+                            <span class="title">指令集列表</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </div>
+
+        <li class="heading">
+            <h3 class="uppercase">其他</h3>
+        </li>
+
+        <div th:if="${type} eq 'others'">
+            <li class="nav-item  ">
+                <a href="javascript:;" class="nav-link nav-toggle">
+                    <i class="icon-layers"></i>
+                    <span class="title">其他</span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="nav-item  ">
+                        <a href="/#" class="nav-link ">
+                            <span class="title">健康报告管理</span>
+                        </a>
+                    </li>
+                    <li class="nav-item  ">
+                        <a href="/#" class="nav-link ">
+                            <span class="title">用户服务</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </div>
+        <div th:unless="${type} eq 'others'">
+            <li class="nav-item  ">
+                <a href="javascript:;" class="nav-link nav-toggle">
+                    <i class="icon-layers"></i>
+                    <span class="title">其他</span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="nav-item  ">
+                        <a href="/#" class="nav-link ">
+                            <span class="title">健康报告管理</span>
+                        </a>
+                    </li>
+                    <li class="nav-item  ">
+                        <a href="/#" class="nav-link ">
+                            <span class="title">用户服务</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </div>
+
+    </ul>
+    <!-- END SIDEBAR MENU -->
+    <!-- END SIDEBAR MENU -->
+</div>
+
+</body>
+
+</html>

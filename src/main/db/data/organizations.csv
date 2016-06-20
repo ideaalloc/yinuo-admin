@@ -1,0 +1,7 @@
+ID,PARENT,NAME,CONTACT,PHONE,EMAIL,AREA_CODE
+1,0,宜诺科技,孙方,13888880001,sunfang@yinuo-tech.com,440305
+2,1,深圳公司,陈莉,13888880002,chenli@yinuo-tech.com,440305
+3,1,武汉公司,吕超,13888880003,lvchao@yinuo-tech.com,420111
+4,1,北京公司,夏某,13888880004,xia@yinuo-tech.com,110108
+5,1,美国公司,董某,13888880005,dong@yinuo-tech.com,714
+6,2,深圳办事处,刘某,13888880006,liu@yinuo-tech.com,440304

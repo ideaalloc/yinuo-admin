@@ -1,0 +1,11 @@
+{
+  "name": "admin",
+  "version": "0.0.1-SNAPSHOT",
+  "dependencies": {
+    "angular": "latest",
+    "angular-resource": "latest",
+    "jquery": "latest",
+    "semantic-ui": "latest",
+    "react": "latest"
+  }
+}

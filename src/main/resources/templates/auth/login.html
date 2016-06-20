@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html lang="zh-CN" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]>
+<html lang="zh-CN" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+
+<head>
+    <meta charset="utf-8"/>
+    <title>宜诺科技 | 用户登录</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <meta content="宜诺科技" name="description"/>
+    <meta content="lvchao" name="author"/>
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link href="/assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet"
+          type="text/css"/>
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <link href="/assets/global/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css"/>
+    <link href="/assets/global/plugins/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <!-- END PAGE LEVEL PLUGINS -->
+    <!-- BEGIN THEME GLOBAL STYLES -->
+    <link href="/assets/global/css/components-md.min.css" rel="stylesheet" id="style_components" type="text/css"/>
+    <link href="/assets/global/css/plugins-md.min.css" rel="stylesheet" type="text/css"/>
+    <!-- END THEME GLOBAL STYLES -->
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link href="/assets/pages/css/login-5.min.css" rel="stylesheet" type="text/css"/>
+    <!-- END PAGE LEVEL STYLES -->
+    <!-- BEGIN THEME LAYOUT STYLES -->
+    <!-- END THEME LAYOUT STYLES -->
+    <link rel="shortcut icon" type="image/png" href="/assets/images/favicon.png"/>
+</head>
+<!-- END HEAD -->
+
+<body class=" login">
+<!-- BEGIN : LOGIN PAGE 5-1 -->
+<div class="user-login-5">
+    <div class="row bs-reset">
+        <div class="col-md-6 bs-reset">
+            <div class="login-bg" style="background-image:url(/assets/pages/img/login/bg1.jpg)">
+                <img class="login-logo" src="/assets/pages/img/login/logo.png"/></div>
+        </div>
+        <div class="col-md-6 login-container bs-reset">
+            <div class="login-content">
+                <h1>后台管理系统登录</h1>
+                <p>我们是移动健康管理的服务提供商，我们的宗旨是为大众服务，包括家庭成员之间的相互关心、孩子及老人、慢性病群体、康复人员、
+                    专业运动员训练以及追求健康生活方式的所有人。我们的产品理念在于通过深入研究人类身体和心理情绪的变化，
+                    开发出系列专有的算法和逻辑关系，实现对生命体征和生活方式的采集、监控、评估以及在需要的时候医疗健康专业人士的介入。</p>
+                <form th:action="@{/login}" class="login-form" method="post">
+
+                    <div th:if="${loginError}" class="alert alert-danger">
+                        <button class="close" data-close="alert"></button>
+                        <span>用户名或密码输入不正确. </span>
+                    </div>
+                    <div th:unless="${loginError}" class="alert alert-danger display-hide">
+                        <button class="close" data-close="alert"></button>
+                        <span>用户名或密码输入不正确. </span>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <input class="form-control form-control-solid placeholder-no-fix form-group" type="text"
+                                   autocomplete="off" placeholder="用户名" name="username" required="required"/></div>
+                        <div class="col-xs-6">
+                            <input class="form-control form-control-solid placeholder-no-fix form-group" type="password"
+                                   autocomplete="off" placeholder="密码" name="password" required="required"/></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                        </div>
+                        <div class="col-sm-8 text-right">
+                            <button class="btn green" type="submit">登录</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="login-footer">
+                <div class="row bs-reset">
+                    <div class="col-xs-5 bs-reset">
+                    </div>
+                    <div class="col-xs-7 bs-reset">
+                        <div class="login-copyright text-right">
+                            <p>Copyright &copy; 深圳宜诺科技有限责任公司 2016</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END : LOGIN PAGE 5-1 -->
+<!--[if lt IE 9]>
+<script src="/assets/global/plugins/respond.min.js"></script>
+<script src="/assets/global/plugins/excanvas.min.js"></script>
+<![endif]-->
+<!-- BEGIN CORE PLUGINS -->
+<script src="/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+<script src="/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="/assets/global/plugins/js.cookie.min.js" type="text/javascript"></script>
+<script src="/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js"
+        type="text/javascript"></script>
+<script src="/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+<script src="/assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+<script src="/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+<!-- END CORE PLUGINS -->
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<script src="/assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
+<script src="/assets/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
+<script src="/assets/global/plugins/select2/js/select2.full.min.js" type="text/javascript"></script>
+<script src="/assets/global/plugins/backstretch/jquery.backstretch.min.js" type="text/javascript"></script>
+<!-- END PAGE LEVEL PLUGINS -->
+<!-- BEGIN THEME GLOBAL SCRIPTS -->
+<script src="/assets/global/scripts/app.min.js" type="text/javascript"></script>
+<!-- END THEME GLOBAL SCRIPTS -->
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script src="/assets/pages/scripts/login-5.min.js" type="text/javascript"></script>
+<!-- END PAGE LEVEL SCRIPTS -->
+<!-- BEGIN THEME LAYOUT SCRIPTS -->
+<!-- END THEME LAYOUT SCRIPTS -->
+</body>
+
+</html>
